@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Configuration;
+using System.Data.Linq;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -50,5 +51,7 @@ namespace Nerddinner.Models
         {
             db.SubmitChanges();
         }
+
+        
     }
 }
