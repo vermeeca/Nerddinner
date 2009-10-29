@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nerddinner", "Nerddinner\Nerddinner.csproj", "{4DF8D83A-39C3-4D79-8B08-8A7E7B9FF2D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nerddinner.Tests", "Nerddinner.Tests\Nerddinner.Tests.csproj", "{68640511-A611-4AAB-B25E-6D95FF30970B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DF8D83A-39C3-4D79-8B08-8A7E7B9FF2D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DF8D83A-39C3-4D79-8B08-8A7E7B9FF2D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DF8D83A-39C3-4D79-8B08-8A7E7B9FF2D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DF8D83A-39C3-4D79-8B08-8A7E7B9FF2D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68640511-A611-4AAB-B25E-6D95FF30970B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68640511-A611-4AAB-B25E-6D95FF30970B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68640511-A611-4AAB-B25E-6D95FF30970B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68640511-A611-4AAB-B25E-6D95FF30970B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
