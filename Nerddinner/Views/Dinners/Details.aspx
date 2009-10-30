@@ -6,59 +6,32 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Details</h2>
+    <h2><%=Html.Encode(Model.Title) %></h2>
 
     <fieldset>
         <legend>Fields</legend>
         <p>
-            DinnerID:
-            <%= Html.Encode(Model.DinnerID) %>
+            <b>When: </b>
+            <%= Html.Encode(Model.EventDate.ToShortDateString()) %> @ 
+            <%=Html.Encode(Model.EventDate.ToShortTimeString()) %>
         </p>
         <p>
-            Title:
-            <%= Html.Encode(Model.Title) %>
-        </p>
-        <p>
-            EventDate:
-            <%= Html.Encode(String.Format("{0:g}", Model.EventDate)) %>
-        </p>
-        <p>
-            Description:
-            <%= Html.Encode(Model.Description) %>
-        </p>
-        <p>
-            HostedBy:
-            <%= Html.Encode(Model.HostedBy) %>
-        </p>
-        <p>
-            ContactPhone:
-            <%= Html.Encode(Model.ContactPhone) %>
-        </p>
-        <p>
-            Address:
+            <b>Where: </b>
             <%= Html.Encode(Model.Address) %>
         </p>
         <p>
-            Country:
-            <%= Html.Encode(Model.Country) %>
+            <b>Description: </b>
+            <%= Html.Encode(Model.Description) %>
         </p>
         <p>
-            Latitude:
-            <%= Html.Encode(String.Format("{0:F}", Model.Latitude)) %>
-        </p>
-        <p>
-            Longitude:
-            <%= Html.Encode(String.Format("{0:F}", Model.Longitude)) %>
-        </p>
-        <p>
-            IsValid:
-            <%= Html.Encode(Model.IsValid) %>
+            <b>Organizer: </b>
+            <%= Html.Encode(Model.HostedBy) %>
         </p>
     </fieldset>
     <p>
 
         <%=Html.ActionLink("Edit", "Edit", new { id=Model.DinnerID }) %> |
-        <%=Html.ActionLink("Back to List", "Index") %>
+        <%=Html.ActionLink("Delete Dinner", "Delete", new { id = Model.DinnerID })%>
     </p>
 
 </asp:Content>
