@@ -18,13 +18,18 @@ namespace Nerddinner.Controllers
 
         public ActionResult Index()
         {
-            return View("Index", dinnerRepository.FindUpcomingDinners().ToList());
+            return View(dinnerRepository.FindUpcomingDinners());
         }
 
         public ActionResult Details(int id)
         {
             var dinner = dinnerRepository.GetDinner(id);
-            return dinner == null ? View("NotFound") : View("Details", dinner);
+            return dinner == null ? View("NotFound") : View(dinner);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return View(dinnerRepository.GetDinner(id));
         }
 
 
