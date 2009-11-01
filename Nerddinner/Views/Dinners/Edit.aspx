@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Edit</h2>
+    <h2>Edit Dinner</h2>
 
     <%= Html.ValidationSummary("Edit was unsuccessful. Please correct the errors and try again.") %>
 
@@ -15,13 +15,8 @@
         <fieldset>
             <legend>Fields</legend>
             <p>
-                <label for="DinnerID">DinnerID:</label>
-                <%= Html.TextBox("DinnerID", Model.DinnerID) %>
-                <%= Html.ValidationMessage("DinnerID", "*") %>
-            </p>
-            <p>
                 <label for="Title">Title:</label>
-                <%= Html.TextBox("Title", Model.Title) %>
+                <%= Html.TextBox("Title", Model.Title, new { size = 30, @class = "myclass" })%>
                 <%= Html.ValidationMessage("Title", "*") %>
             </p>
             <p>
@@ -35,16 +30,6 @@
                 <%= Html.ValidationMessage("Description", "*") %>
             </p>
             <p>
-                <label for="HostedBy">HostedBy:</label>
-                <%= Html.TextBox("HostedBy", Model.HostedBy) %>
-                <%= Html.ValidationMessage("HostedBy", "*") %>
-            </p>
-            <p>
-                <label for="ContactPhone">ContactPhone:</label>
-                <%= Html.TextBox("ContactPhone", Model.ContactPhone) %>
-                <%= Html.ValidationMessage("ContactPhone", "*") %>
-            </p>
-            <p>
                 <label for="Address">Address:</label>
                 <%= Html.TextBox("Address", Model.Address) %>
                 <%= Html.ValidationMessage("Address", "*") %>
@@ -53,6 +38,11 @@
                 <label for="Country">Country:</label>
                 <%= Html.TextBox("Country", Model.Country) %>
                 <%= Html.ValidationMessage("Country", "*") %>
+            </p>
+            <p>
+                <label for="ContactPhone">ContactPhone:</label>
+                <%= Html.TextBox("ContactPhone", Model.ContactPhone) %>
+                <%= Html.ValidationMessage("ContactPhone", "*") %>
             </p>
             <p>
                 <label for="Latitude">Latitude:</label>
