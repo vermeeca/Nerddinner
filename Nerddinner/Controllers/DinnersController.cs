@@ -38,9 +38,19 @@ namespace Nerddinner.Controllers
         {
             var dinner = dinnerRepository.GetDinner(id);
             UpdateModel(dinner);
-            dinnerRepository.Save();
-            return RedirectToAction("Details", new {id = dinner.DinnerID});
-           
+
+            if (!dinner.IsValid)
+            {
+                dinner.GetRuleViolations().ToList().ForEach(
+                    v => ModelState.AddModelError(v.PropertyName, v.ErrorMessage));
+                return View(dinner);
+            }
+            else
+            {
+                dinnerRepository.Save();
+                return RedirectToAction("Details", new {id = dinner.DinnerID});
+            }
+
         }
 
 
