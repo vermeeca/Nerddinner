@@ -61,6 +61,7 @@ namespace Nerddinner.Controllers
 
         }
 
+        [Authorize]
         public ActionResult Create()
         {
             Dinner dinner = new Dinner
@@ -72,6 +73,7 @@ namespace Nerddinner.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
+        [Authorize]
         public ActionResult Create(Dinner dinner)
         {
             dinner.HostedBy = "Craig";
