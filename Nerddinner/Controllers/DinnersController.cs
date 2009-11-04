@@ -80,6 +80,27 @@ namespace Nerddinner.Controllers
             }
         }
 
+        public ActionResult Delete(int id)
+        {
+            var dinner = dinnerRepository.GetDinner(id);
+            return dinner == null ? View("NotFound") : View(dinner);
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Delete(int id, string confirmButton)
+        {
+            var dinner = dinnerRepository.GetDinner(id);
+            if(dinner == null)
+            {
+                return View("NotFound");
+            }
+
+            dinnerRepository.Delete(dinner);
+            dinnerRepository.Save();
+
+            return View("Deleted");
+        }
+
 
     }
 }
