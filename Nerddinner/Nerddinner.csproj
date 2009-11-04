@@ -68,6 +68,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ControllerHelpers.cs" />
+    <Compile Include="Helpers\PaginatedList.cs" />
     <Compile Include="Helpers\PhoneValidator.cs" />
     <Compile Include="Models\Dinner.cs" />
     <Compile Include="Models\DinnerRepository.cs" />

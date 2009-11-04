@@ -1,4 +1,5 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<Nerddinner.Models.Dinner>>" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<PaginatedList<Nerddinner.Models.Dinner>>" %>
+<%@ Import Namespace="NerdDinner.Helpers"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Index
@@ -23,6 +24,16 @@
     <% } %>
     
     </ul>
+    
+    <%if (Model.HasPreviousPage)
+      {%>
+      <%=Html.RouteLink("<<<", "UpcomingDinners", new { page = Model.PageIndex - 1 })%>
+    <%} %>
+    
+    <%if (Model.HasNextPage)
+      {%>
+      <%=Html.RouteLink(">>>", "UpcomingDinners", new { page = Model.PageIndex + 1 })%>
+    <%} %>
 
 </asp:Content>
 

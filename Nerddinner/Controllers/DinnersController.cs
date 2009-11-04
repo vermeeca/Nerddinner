@@ -19,9 +19,13 @@ namespace Nerddinner.Controllers
         //
         // GET: /Dinners/
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(dinnerRepository.FindUpcomingDinners());
+            const int pageSize = 10;
+
+            var upcoming = dinnerRepository.FindUpcomingDinners();
+            var paginated = new PaginatedList<Dinner>(upcoming, (page ?? 0), pageSize);
+            return View(paginated);
         }
 
         public ActionResult Details(int id)
