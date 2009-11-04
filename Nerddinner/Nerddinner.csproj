@@ -68,6 +68,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ControllerHelpers.cs" />
     <Compile Include="Helpers\PhoneValidator.cs" />
     <Compile Include="Models\Dinner.cs" />
     <Compile Include="Models\DinnerRepository.cs" />
@@ -82,6 +83,7 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Dinners\Create.aspx" />
     <Content Include="Views\Dinners\Details.aspx" />
     <Content Include="Views\Dinners\Edit.aspx" />
     <Content Include="Views\Dinners\Index.aspx" />
