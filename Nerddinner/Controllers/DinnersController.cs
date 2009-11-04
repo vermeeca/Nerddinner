@@ -5,7 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 using Nerddinner.Helpers;
+using NerdDinner.Helpers;
 using Nerddinner.Models;
+using Nerddinner.ViewModels;
 
 namespace Nerddinner.Controllers
 {
@@ -30,7 +32,8 @@ namespace Nerddinner.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View(dinnerRepository.GetDinner(id));
+            var dinner = dinnerRepository.GetDinner(id);
+            return View(new DinnerFormViewModel(dinner));
         }
 
 
@@ -38,15 +41,16 @@ namespace Nerddinner.Controllers
         public ActionResult Edit(int id, FormCollection formValues)
         {
             var dinner = dinnerRepository.GetDinner(id);
+            
             UpdateModel(dinner);
 
             if (!dinner.IsValid)
             {
                 ModelState.AddRuleViolations(dinner.GetRuleViolations());
-                return View(dinner);
+                return View(new DinnerFormViewModel(dinner));
             }
             else
-            {
+            {  
                 dinnerRepository.Save();
                 return RedirectToAction("Details", new {id = dinner.DinnerID});
             }
@@ -59,7 +63,7 @@ namespace Nerddinner.Controllers
                                 {
                                     EventDate = DateTime.Now.AddDays(7)
                                 };
-            return View(dinner);
+            return View(new DinnerFormViewModel(dinner));
 
         }
 

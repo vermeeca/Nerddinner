@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="Models\RuleViolation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\DinnerFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
