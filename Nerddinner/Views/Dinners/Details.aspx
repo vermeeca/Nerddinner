@@ -27,11 +27,30 @@
             <b>Organizer: </b>
             <%= Html.Encode(Model.HostedBy) %>
         </p>
+        
+        <%if (Request.IsAuthenticated)
+          {%>
+        
+        <%if (Model.IsUserRegistered(User.Identity.Name))
+          { %>
+        
+        <p>You are registered for this event</p>
+        
+        <%}
+          else
+          { %>
+        <p>You are not registered for this event</p>
+        <%} %>
+        <%} %>
+        
     </fieldset>
     <p>
 
-        <%=Html.ActionLink("Edit", "Edit", new { id=Model.DinnerID }) %> |
+        <%if (Model.IsHostedBy(User.Identity.Name))
+          { %>
+        <%=Html.ActionLink("Edit", "Edit", new { id = Model.DinnerID })%> |
         <%=Html.ActionLink("Delete Dinner", "Delete", new { id = Model.DinnerID })%>
+        <%} %>
     </p>
 
 </asp:Content>

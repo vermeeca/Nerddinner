@@ -23,6 +23,11 @@ namespace Nerddinner.Models
             get { return (GetRuleViolations().Count() == 0); }
         }
 
+        public bool IsUserRegistered(string name)
+        {
+            return RSVPs.Any(r => string.Compare(r.AttendeeName, name, true) == 0);
+        }
+
         public IEnumerable<RuleViolation> GetRuleViolations()
         {
 
@@ -54,6 +59,11 @@ namespace Nerddinner.Models
         {
             if (!IsValid)
                 throw new ApplicationException("Rule violations prevent saving");
+        }
+
+        public bool IsHostedBy(string name)
+        {
+            return string.Compare(name, this.HostedBy, true) == 0;
         }
     }
 }

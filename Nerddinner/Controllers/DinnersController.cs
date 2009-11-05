@@ -15,7 +15,7 @@ namespace Nerddinner.Controllers
     {
         private DinnerRepository dinnerRepository = new DinnerRepository();
 
-
+        
         //
         // GET: /Dinners/
 
@@ -34,9 +34,14 @@ namespace Nerddinner.Controllers
             return dinner == null ? View("NotFound") : View(dinner);
         }
 
+        [Authorize]
         public ActionResult Edit(int id)
         {
             var dinner = dinnerRepository.GetDinner(id);
+            if (!dinner.IsHostedBy(User.Identity.Name))
+            {
+                return View("InvalidOwner");
+            }
             return View(new DinnerFormViewModel(dinner));
         }
 
@@ -45,7 +50,12 @@ namespace Nerddinner.Controllers
         public ActionResult Edit(int id, FormCollection formValues)
         {
             var dinner = dinnerRepository.GetDinner(id);
-            
+
+            if(!dinner.IsHostedBy(User.Identity.Name))
+            {
+                return View("InvalidOwner");
+            }
+
             UpdateModel(dinner);
 
             if (!dinner.IsValid)
@@ -76,7 +86,7 @@ namespace Nerddinner.Controllers
         [Authorize]
         public ActionResult Create(Dinner dinner)
         {
-            dinner.HostedBy = "Craig";
+            dinner.HostedBy = User.Identity.Name;
             if(dinner.IsValid)
             {
                 dinnerRepository.Add(dinner);
@@ -90,9 +100,14 @@ namespace Nerddinner.Controllers
             }
         }
 
+        [Authorize]
         public ActionResult Delete(int id)
         {
             var dinner = dinnerRepository.GetDinner(id);
+            if(!dinner.IsHostedBy(User.Identity.Name))
+            {
+                return View("InvalidOwner");
+            }
             return dinner == null ? View("NotFound") : View(dinner);
         }
 
