@@ -96,9 +96,11 @@
     <Content Include="Views\Dinners\Details.aspx" />
     <Content Include="Views\Dinners\DinnerForm.ascx" />
     <Content Include="Views\Dinners\Edit.aspx" />
+    <Content Include="Views\Dinners\EditAndDeleteLinks.ascx" />
     <Content Include="Views\Dinners\Index.aspx" />
     <Content Include="Views\Dinners\InvalidOwner.aspx" />
     <Content Include="Views\Dinners\NotFound.aspx" />
+    <Content Include="Views\Dinners\RSVPStatus.ascx" />
     <Content Include="Web.config" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery-1.3.2.js" />
