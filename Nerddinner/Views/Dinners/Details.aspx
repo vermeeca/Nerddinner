@@ -14,6 +14,7 @@
 
 
     <fieldset>
+        <div id="dinnerDiv">
         <legend>Fields</legend>
         <p>
             <b>When: </b>
@@ -32,6 +33,13 @@
             <b>Organizer: </b>
             <%= Html.Encode(Model.HostedBy) %>
         </p>
+        
+        <div id="mapdiv">
+        <%
+            Html.RenderPartial("Map", Model); %>
+        </div>
+        
+        </div>
         
     </fieldset>
     <%

@@ -2,10 +2,12 @@
 
  <%= Html.ValidationSummary("Please correct the errors and try again.") %>
 
+<script src="../../Scripts/jquery-1.3.2.js" type="text/javascript"></script>
 
 <% using (Html.BeginForm()) {%>
 
         <fieldset>
+            <div id="dinnerDiv">
             <legend>Fields</legend>
             <p>
                 <label for="Title">Title:</label>
@@ -50,6 +52,31 @@
             <p>
                 <input type="submit" value="Save" />
             </p>
+            </div>
+            
+            <div id="mapDiv">
+            <%
+    Html.RenderPartial("Map", Model.Dinner); %>
+            </div>
+            
+            <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $("#Address").blur(function(evt)
+                {
+                    $("#Latitude").val("");
+                    $("#Longitude").val("");
+                    
+                    var address = jQuery.trim($("#Address").val());
+                    if(address.length < 1)
+                        return;
+                    
+                    FindAddressOnMap(address);
+                });
+            
+            });
+            </script>
+            
         </fieldset>
 
     <% } %>
