@@ -6,8 +6,9 @@
 
 <% using (Html.BeginForm()) {%>
 
+ 
         <fieldset>
-            <div id="dinnerDiv">
+           <div id="dinnerDiv">
             <legend>Fields</legend>
             <p>
                 <label for="Title">Title:</label>
@@ -52,9 +53,10 @@
             <p>
                 <input type="submit" value="Save" />
             </p>
+            
             </div>
             
-            <div id="mapDiv">
+               <div id="mapDiv">
             <%
     Html.RenderPartial("Map", Model.Dinner); %>
             </div>
@@ -76,8 +78,10 @@
             
             });
             </script>
-            
         </fieldset>
+        
+        
+     
 
     <% } %>
 
