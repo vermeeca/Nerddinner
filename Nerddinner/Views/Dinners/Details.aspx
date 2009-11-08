@@ -15,7 +15,6 @@
 
     <fieldset>
         <div id="dinnerDiv">
-        <legend>Fields</legend>
         <p>
             <b>When: </b>
             <%= Html.Encode(Model.EventDate.ToShortDateString()) %> @ 
@@ -34,7 +33,7 @@
             <%= Html.Encode(Model.HostedBy) %>
         </p>
         
-        <div id="mapdiv">
+        <div id="mapDiv">
         <%
             Html.RenderPartial("Map", Model); %>
         </div>
@@ -45,7 +44,7 @@
     <%
         Html.RenderPartial("RSVPStatus");
         Html.RenderPartial("EditAndDeleteLinks");
-        %>
+    %>
    
 
 </asp:Content>

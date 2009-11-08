@@ -1,7 +1,7 @@
 <%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Nerddinner.Models.Dinner>" %>
-<script src="/Scripts/MicrosoftAjax.js" type="text/javascript" ></script>
-<script src="/Scripts/MicrosoftMvcAjax.js" type="text/javascript" ></script>
-<script src="/Scripts/jQuery-1.3.2.js" type="text/javascript"></script>
+<script src="../../Scripts/MicrosoftAjax.js" type="text/javascript" ></script>
+<script src="../../Scripts/MicrosoftMvcAjax.js" type="text/javascript" ></script>
+
 <script type="text/javascript">
     function AnimateRSVPMessage()
     {

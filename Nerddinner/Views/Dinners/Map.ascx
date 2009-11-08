@@ -1,6 +1,6 @@
 <%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Nerddinner.Models.Dinner>" %>
 <script src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.2" type="text/javascript"></script>
-<script src="/Scripts/Map.js" type="text/javascript"></script>
+<script src="../../Scripts/Map.js" type="text/javascript"></script>
 
 <div id="theMap" style="position:relative">
 </div>

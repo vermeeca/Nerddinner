@@ -40,14 +40,8 @@
                 <%= Html.ValidationMessage("ContactPhone", "*") %>
             </p>
             <p>
-                <label for="Latitude">Latitude:</label>
-                <%= Html.TextBox("Latitude", String.Format("{0:F}", Model.Dinner.Latitude))%>
-                <%= Html.ValidationMessage("Latitude", "*") %>
-            </p>
-            <p>
-                <label for="Longitude">Longitude:</label>
-                <%= Html.TextBox("Longitude", String.Format("{0:F}", Model.Dinner.Longitude))%>
-                <%= Html.ValidationMessage("Longitude", "*") %>
+                <%= Html.Hidden("Latitude", String.Format("{0:F}", Model.Dinner.Latitude))%>
+                <%= Html.Hidden("Longitude", String.Format("{0:F}", Model.Dinner.Longitude))%>
             </p>
             <p>
                 <input type="submit" value="Save" />
