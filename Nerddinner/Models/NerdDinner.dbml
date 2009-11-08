@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="Nerddinner" Class="NerdDinnerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\Nerddinner.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="NerddinnerConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\Nerddinner.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="NerddinnerConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Dinners" Member="Dinners">
     <Type Name="Dinner">
       <Column Name="DinnerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -24,4 +24,18 @@
       <Association Name="Dinner_RSVP" Member="Dinner" ThisKey="DinnerID" Type="Dinner" IsForeignKey="true" />
     </Type>
   </Table>
+  <Function Name="dbo.DistanceBetween" Method="DistanceBetween" IsComposable="true">
+    <Parameter Name="Lat1" Parameter="lat1" Type="System.Single" DbType="Real" />
+    <Parameter Name="Long1" Parameter="long1" Type="System.Single" DbType="Real" />
+    <Parameter Name="Lat2" Parameter="lat2" Type="System.Single" DbType="Real" />
+    <Parameter Name="Long2" Parameter="long2" Type="System.Single" DbType="Real" />
+    <Return Type="System.Single" />
+  </Function>
+  <Function Name="dbo.NearestDinners" Method="NearestDinners" IsComposable="true">
+    <Parameter Name="lat" Type="System.Single" DbType="Real" />
+    <Parameter Name="long" Type="System.Single" DbType="Real" />
+    <ElementType Name="NearestDinnersResult">
+      <Column Name="DinnerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

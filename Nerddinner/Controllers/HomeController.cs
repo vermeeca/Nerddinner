@@ -11,7 +11,8 @@ namespace Nerddinner.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "Dinners");
+            return View();
+
         }
 
         public ActionResult About()

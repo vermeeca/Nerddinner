@@ -39,7 +39,7 @@ namespace Nerddinner.Models
     #endregion
 		
 		public NerdDinnerDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["NerddinnerConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["NerddinnerConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -82,6 +82,18 @@ namespace Nerddinner.Models
 			{
 				return this.GetTable<RSVP>();
 			}
+		}
+		
+		[Function(Name="dbo.DistanceBetween", IsComposable=true)]
+		public System.Nullable<float> DistanceBetween([Parameter(Name="Lat1", DbType="Real")] System.Nullable<float> lat1, [Parameter(Name="Long1", DbType="Real")] System.Nullable<float> long1, [Parameter(Name="Lat2", DbType="Real")] System.Nullable<float> lat2, [Parameter(Name="Long2", DbType="Real")] System.Nullable<float> long2)
+		{
+			return ((System.Nullable<float>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), lat1, long1, lat2, long2).ReturnValue));
+		}
+		
+		[Function(Name="dbo.NearestDinners", IsComposable=true)]
+		public IQueryable<NearestDinnersResult> NearestDinners([Parameter(DbType="Real")] System.Nullable<float> lat, [Parameter(Name="long", DbType="Real")] System.Nullable<float> @long)
+		{
+			return this.CreateMethodCallQuery<NearestDinnersResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), lat, @long);
 		}
 	}
 	
@@ -538,6 +550,32 @@ namespace Nerddinner.Models
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	public partial class NearestDinnersResult
+	{
+		
+		private int _DinnerID;
+		
+		public NearestDinnersResult()
+		{
+		}
+		
+		[Column(Storage="_DinnerID", DbType="Int NOT NULL")]
+		public int DinnerID
+		{
+			get
+			{
+				return this._DinnerID;
+			}
+			set
+			{
+				if ((this._DinnerID != value))
+				{
+					this._DinnerID = value;
+				}
 			}
 		}
 	}
