@@ -10,7 +10,16 @@ namespace Nerddinner.Controllers
 {
     public class SearchController : Controller
     {
-        private DinnerRepository dinnerRepository = new DinnerRepository();
+        private IDinnerRepository dinnerRepository = null;
+
+        public SearchController() : this(new DinnerRepository())
+        {
+        }
+
+        public SearchController(IDinnerRepository repo)
+        {
+            dinnerRepository = repo;
+        }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult SearchByLocation(float latitude, float longitude)

@@ -13,9 +13,17 @@ namespace Nerddinner.Controllers
 {
     public class DinnersController : Controller
     {
-        private DinnerRepository dinnerRepository = new DinnerRepository();
+        private IDinnerRepository dinnerRepository = null;
 
-        
+        public DinnersController() : this(new DinnerRepository())
+        {
+        }
+
+        public DinnersController(IDinnerRepository repo)
+        {
+            dinnerRepository = repo;
+        }
+
         //
         // GET: /Dinners/
 

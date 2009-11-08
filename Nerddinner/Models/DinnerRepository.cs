@@ -13,7 +13,7 @@ using System.Xml.Linq;
 
 namespace Nerddinner.Models
 {
-    public class DinnerRepository
+    public class DinnerRepository : IDinnerRepository
     {
         private NerdDinnerDataContext db = new NerdDinnerDataContext();
 
