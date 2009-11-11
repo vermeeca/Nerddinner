@@ -11,14 +11,14 @@
 
 <h2>Find a Dinner</h2>
 
-<div id="mapDivLeft" style="position:relative">
+<div id="mapDivLeft" >
 
     <div id="searchBox">
         Enter your location: <%= Html.TextBox("Location") %> or <%= Html.ActionLink("View All Upcoming Dinners", "Index", "Dinners") %>.
         <input id="search" type="submit" value="Search" />
     </div>
 
-    <div id="theMap" style="position:relative;width:500px;height:450px;">
+    <div id="theMap" ">
     </div>
 
 </div>

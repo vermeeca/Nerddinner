@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <div id="main" style="height:590px">
+        <div id="main" >
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 
             <div id="footer">

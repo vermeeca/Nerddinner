@@ -14,7 +14,7 @@
 
 
     
-        <div id="dinnerDiv" style="float:left;width:400px;">
+        <div id="dinnerDiv" ">
         <p>
             <b>When: </b>
             <%= Html.Encode(Model.EventDate.ToShortDateString()) %> @ 
@@ -42,7 +42,7 @@
         
     
     
-    <div id="mapDiv" style="float:left">
+    <div id="mapDiv" >
         <%
             Html.RenderPartial("Map", Model); %>
         </div>

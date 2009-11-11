@@ -8,7 +8,7 @@
 
  
         <fieldset>
-           <div id="dinnerDiv" style="float: left;width: 280px;">
+           <div id="dinnerDiv" >
             <p>
                 <label for="Title">Title:</label>
                 <%= Html.TextBox("Title", Model.Dinner.Title, new { size = 30, @class = "myclass" })%>
